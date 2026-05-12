@@ -82,13 +82,7 @@ export default function Navbar() {
   return (
     <nav role="navigation" aria-label="main navigation">
       <div>
-        <Link href="/">
-          <img
-            src="/images/logo.png"
-            alt="Logo"
-            style={{ width: "4rem", height: "4rem" }}
-          />
-        </Link>
+        <Link href="/"></Link>
         <a
           role="button"
           aria-label="menu"
@@ -96,11 +90,7 @@ export default function Navbar() {
           data-target="navbarBasicExample"
           ref={hamburger}
           onClick={showMobileNavbar}
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
+        ></a>
       </div>
 
       <div ref={navbar} onClick={showMobileNavbar}>
