@@ -25,9 +25,9 @@ export default function Navbar() {
         !hamburger.current.contains(e.target)
       ) {
         // Is the navbar/menu open/is-active? If yes, close the menu
-        if (navbar.current.classList.contains("is-active")) {
-          showMobileNavbar();
-        }
+        // if (navbar.current.classList.contains("is-active")) {
+        //   showMobileNavbar();
+        // }
       }
     };
     // Was there a click?
@@ -43,21 +43,17 @@ export default function Navbar() {
 
   const getLoggedInButtons = () => {
     return (
-      <div className="navbar-item has-dropdown is-hoverable">
-        <a className="navbar-link">
-          <span className="icon">
-            <i className="fas fa-user-circle is-medium"></i>
+      <div>
+        <a>
+          <span>
+            <i></i>
           </span>
         </a>
-        <div className="navbar-dropdown is-right">
-          <Link href="/home" className="navbar-item">
-            Home
-          </Link>
-          
+        <div>
+          <Link href="/home">Home</Link>
 
-          <hr className="navbar-divider"></hr>
+          <hr></hr>
           <a
-            className="navbar-item"
             onClick={() => {
               localStorage.removeItem("token");
               setIsLoggedIn(false);
@@ -72,37 +68,29 @@ export default function Navbar() {
 
   const getLoggedOutButtons = () => {
     return (
-      <div className="navbar-item">
-        <div className="buttons">
+      <div>
+        <div>
           <Link href="/register">
             <strong>Sign up</strong>
           </Link>
-          <Link href="/login">
-            Log in
-          </Link>
+          <Link href="/login">Log in</Link>
         </div>
       </div>
     );
   };
 
   return (
-    <nav
-      className="navbar mb-3 is-warning px-5 is-fixed-top is-top"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div className="navbar-brand">
+    <nav role="navigation" aria-label="main navigation">
+      <div>
         <Link href="/">
           <img
             src="/images/logo.png"
             alt="Logo"
             style={{ width: "4rem", height: "4rem" }}
-            className="relative"
           />
         </Link>
         <a
           role="button"
-          className="navbar-burger"
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
@@ -115,18 +103,12 @@ export default function Navbar() {
         </a>
       </div>
 
-      <div className="navbar-menu" ref={navbar} onClick={showMobileNavbar}>
-        <div className="navbar-start">
-          <Link href="/home" className="navbar-item">
-            Home
-          </Link>
-          <Link href="/trips" className="navbar-item">
-            Trips
-          </Link>
+      <div ref={navbar} onClick={showMobileNavbar}>
+        <div>
+          <Link href="/home">Home</Link>
+          <Link href="/trips">Trips</Link>
         </div>
-        <div className="navbar-end">
-          {isLoggedIn ? getLoggedInButtons() : getLoggedOutButtons()}
-        </div>
+        <div>{isLoggedIn ? getLoggedInButtons() : getLoggedOutButtons()}</div>
       </div>
     </nav>
   );
