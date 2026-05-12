@@ -15,8 +15,6 @@ export default function Register() {
   const username = useRef("");
   const password = useRef("");
   const email = useRef("");
-  const address = useRef("");
-  const phoneNumber = useRef("");
 
   const router = useRouter();
 
@@ -29,8 +27,6 @@ export default function Register() {
       first_name: firstName.current.value,
       last_name: lastName.current.value,
       email: email.current.value,
-      address: address.current.value,
-      phone_number: phoneNumber.current.value,
     };
 
     register(user).then((res) => {
@@ -42,10 +38,10 @@ export default function Register() {
   };
 
   return (
-    <div className="columns is-centered">
-      <div className="column is-half">
-        <form className="box">
-          <h1 className="title">Welcome!</h1>
+    <div>
+      <div>
+        <form>
+          <h1>Welcome!</h1>
           <Input
             id="firstName"
             refEl={firstName}
@@ -54,12 +50,6 @@ export default function Register() {
           />
           <Input id="lastName" refEl={lastName} type="text" label="Last Name" />
           <Input id="email" refEl={email} type="text" label="Email" />
-          <Input
-            id="phoneNumber"
-            refEl={phoneNumber}
-            type="text"
-            label="Phone Number"
-          />
           <Input id="username" refEl={username} type="text" label="Username" />
           <Input
             id="password"
@@ -68,15 +58,13 @@ export default function Register() {
             label="Password"
           />
 
-          <div className="field is-grouped">
-            <div className="control">
-              <button className="button is-link" onClick={submit}>
-                Submit
-              </button>
+          <div>
+            <div>
+              <button onClick={submit}>Submit</button>
             </div>
-            <div className="control">
+            <div>
               <Link href="/login">
-                <button className="button is-link is-light">Cancel</button>
+                <button>Cancel</button>
               </Link>
             </div>
           </div>
