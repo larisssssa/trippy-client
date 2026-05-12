@@ -30,9 +30,9 @@ export default function Login() {
 
   return (
     <div>
-      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6">
-          <h1 className="title">Welcome Back!</h1>
+      <div >
+        <form >
+          <h1 >Welcome Back!</h1>
           <Input id="username" refEl={username} type="text" label="Username" />
           <Input
             id="password"
