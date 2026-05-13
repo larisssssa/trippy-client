@@ -13,8 +13,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div id="navbarBasicExample" class="navbar-menu">
+      <nav
+        class="navbar is-light"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-menu is-active">
           <div class="navbar-start">
             <a class="navbar-item" href="">
               Home
