@@ -7,3 +7,10 @@ export function getTrips() {
     },
   });
 }
+export function getTripById(id) {
+  return fetchWithResponse(`trips/${id}`, {
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+    },
+  });
+}
