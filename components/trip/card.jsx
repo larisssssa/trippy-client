@@ -1,5 +1,8 @@
 export function TripCard({ trip, width = "is-one-quarter" }) {
-  const date = new Date(trip.date);
+  const date = new Date(trip.departure_date).toLocaleString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
 
   return (
     <div class={`column ${width}`}>
@@ -10,10 +13,13 @@ export function TripCard({ trip, width = "is-one-quarter" }) {
           </figure>
         </div>
         <div class="card-content">
-          <p class="title">{trip.name}</p>
-          <p class="subtitle">
-            {date.toLocaleString("en-US", { month: "long", year: "numeric" })}
-          </p>
+          <p class="title is-4">{trip.name}</p>
+          <p class="subtitle">{date}</p>
+        </div>
+        <div class="card-footer">
+          <a href={`/trips/${trip.id}`} class="card-footer-item">
+            View Details
+          </a>
         </div>
       </div>
     </div>
