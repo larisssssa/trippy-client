@@ -15,6 +15,13 @@ export function TripDetail({ trip }) {
         <div class="columns is-6">
           <div class="column box is-one-quarter">
             <p class="title is-4 has-text-centered">Details</p>
+            <hr />
+            <div class="content">
+              <h2>Destination:</h2>
+              <p>
+                {trip.destination}, {trip.country}
+              </p>
+            </div>
           </div>
           <div class="column box is-one-quarter">
             <p class="title is-4 has-text-centered">Attendees</p>
