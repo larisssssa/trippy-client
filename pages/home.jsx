@@ -1,26 +1,23 @@
-import { useEffect, useState } from "react";
 import Layout from "../components/layout";
 import Navbar from "../components/navbar";
-import { TripCard } from "../components/trip/card";
-import { getTrips } from "../data/trips";
 
 export default function Home() {
-  const [trips, setTrips] = useState([]);
-  useEffect(() => {
-    getTrips().then((trips) => {
-      setTrips(trips);
-    });
-  }, []);
-
   return (
-      <div className="container">
-        <header className="header">Header</header>
-        <div class="columns ">
-          {trips.map((trip) => (
-            <TripCard trip={trip} key={trip.id} />
-          ))}
+    <>
+      <div class="container">
+        <div class="section">
+          <h1 class="title">Welcome</h1>
+        </div>
+        <div class="buttons is-grouped">
+          <a class="button" href="trips/new">
+            New Trip
+          </a>
+          <a class="button" href="trips/">
+            My Trips
+          </a>
         </div>
       </div>
+    </>
   );
 }
 Home.getLayout = function getLayout(page) {
