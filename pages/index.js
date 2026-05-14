@@ -1,9 +1,9 @@
 import Layout from "../components/layout";
 import Navbar from "../components/navbar";
-import Login from "./login";
+import Home from "./home";
 
 export default function Index() {
-  return <Login />;
+  return <Home />;
 }
 
 Index.getLayout = function getLayout(page) {
