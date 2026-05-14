@@ -23,7 +23,7 @@ export default function Navbar() {
             <a class="navbar-item" href="home">
               Home
             </a>
-            <a class="navbar-item" href="my-trips">
+            <a class="navbar-item" href="trips">
               My Trips
             </a>
           </div>
