@@ -15,7 +15,14 @@ export default function Trips() {
   return (
     <div class="container">
       <div class="section">
-        <h1 class="title">My Trips</h1>
+        <div class="is-grouped">
+          <p class="title">My Trips</p>
+          <a href="/new" class="button">
+            New Trip
+          </a>
+        </div>
+      </div>
+      <div class="section">
         <div class="columns ">
           {trips.map((trip) => (
             <TripCard trip={trip} key={trip.id} />
