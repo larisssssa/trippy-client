@@ -41,6 +41,16 @@ export function TripDetail({ trip }) {
           </div>
           <div class="column box is-one-quarter">
             <p class="title is-4 has-text-centered">Attendees</p>
+            <hr />
+            <div class="">
+              {trip.attendees.map((attendee) => {
+                return (
+                  <p class="title is-5" key={attendee.id}>
+                    {attendee.user.first_name} {attendee.user.last_name}
+                  </p>
+                );
+              })}
+            </div>
           </div>
           <div class="column box is-one-half">
             <p class="title is-4 has-text-centered">Attractions</p>
