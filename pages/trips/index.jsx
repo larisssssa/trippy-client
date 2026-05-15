@@ -17,7 +17,7 @@ export default function Trips() {
       <div class="section">
         <div class="is-grouped">
           <p class="title">My Trips</p>
-          <a href="/new" class="button">
+          <a href="trips/new" class="button">
             New Trip
           </a>
         </div>
