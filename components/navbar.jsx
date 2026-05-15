@@ -20,10 +20,10 @@ export default function Navbar() {
       >
         <div class="navbar-menu is-active">
           <div class="navbar-start">
-            <a class="navbar-item" href="">
+            <a class="navbar-item" href="/home">
               Home
             </a>
-            <a class="navbar-item" href="my-trips">
+            <a class="navbar-item" href="/trips">
               My Trips
             </a>
           </div>
