@@ -14,3 +14,24 @@ export function getTripById(id) {
     },
   });
 }
+export function createNewTrip(trip) {
+  return fetchWithResponse("trips", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(trip),
+  });
+}
+
+export function createNewTripUser(id, username) {
+  return fetchWithoutResponse(`trips/${id}/attendee`, {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(username),
+  });
+}
