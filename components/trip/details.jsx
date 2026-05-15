@@ -1,4 +1,12 @@
 export function TripDetail({ trip }) {
+  const formatDate = (date) => {
+    return new Date(date).toLocaleString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+  };
+
   return (
     <>
       <div class="section">
@@ -17,10 +25,18 @@ export function TripDetail({ trip }) {
             <p class="title is-4 has-text-centered">Details</p>
             <hr />
             <div class="content">
-              <h2>Destination:</h2>
-              <p>
+              <p class="title is-5">Destination:</p>
+              <p class="subtitle is-6">
                 {trip.destination}, {trip.country}
               </p>
+            </div>
+            <div class="content">
+              <p class="title is-5">Departure:</p>
+              <p class="subtitle is-6">{formatDate(trip.departure_date)}</p>
+            </div>
+            <div class="content">
+              <p class="title is-5">Return:</p>
+              <p class="subtitle is-6">{formatDate(trip.return_date)}</p>
             </div>
           </div>
           <div class="column box is-one-quarter">
