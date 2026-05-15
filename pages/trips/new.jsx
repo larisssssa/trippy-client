@@ -3,10 +3,11 @@ import Navbar from "../../components/navbar";
 import { NewTripForm } from "../../components/trip/form";
 
 export default function NewTrip() {
-  const saveTrip = () => {};
   return (
     <>
-      <NewTripForm />
+      <div class="container">
+        <NewTripForm />
+      </div>
     </>
   );
 }
