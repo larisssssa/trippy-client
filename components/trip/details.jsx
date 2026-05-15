@@ -43,7 +43,7 @@ export function TripDetail({ trip }) {
             <p class="title is-4 has-text-centered">Attendees</p>
             <hr />
             <div class="">
-              {trip.attendees.map((attendee) => {
+              {trip.attendees?.map((attendee) => {
                 return (
                   <p class="title is-5" key={attendee.id}>
                     {attendee.user.first_name} {attendee.user.last_name}
@@ -54,6 +54,33 @@ export function TripDetail({ trip }) {
           </div>
           <div class="column box is-one-half">
             <p class="title is-4 has-text-centered">Attractions</p>
+            <hr />
+            <div class="fixed-grid has-2-cols">
+              <div class="grid">
+                {trip.attractions?.map((attr) => {
+                  return (
+                    <div class="cell" key={attr.attraction.id}>
+                      <div class="card">
+                        <div class="card-image">
+                          <figure class="image">
+                            <img src={attr.attraction.imageurl}></img>
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <p class="title is-6">{attr.attraction.name}</p>
+                          <p class="subtitle is-6">
+                            {attr.attraction.description}
+                          </p>
+                          <span class="tag is-light">
+                            {attr.attraction.category.name}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
