@@ -5,7 +5,7 @@ export function TripCard({ trip, width = "is-one-quarter" }) {
   });
 
   return (
-    <div class={`column ${width}`}>
+    <div class="cell">
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by3">
