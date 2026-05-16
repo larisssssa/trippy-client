@@ -23,10 +23,12 @@ export default function Trips() {
         </div>
       </div>
       <div class="section">
-        <div class="columns ">
-          {trips.map((trip) => (
-            <TripCard trip={trip} key={trip.id} />
-          ))}
+        <div class="fixed-grid has-4-cols">
+          <div class="grid">
+            {trips.map((trip) => (
+              <TripCard trip={trip} key={trip.id} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
