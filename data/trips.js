@@ -26,7 +26,7 @@ export function createNewTrip(trip) {
 }
 
 export function createNewTripUser(id, username) {
-  return fetchWithoutResponse(`trips/${id}/attendee`, {
+  return fetchWithResponse(`trips/${id}/attendee`, {
     method: "POST",
     headers: {
       Authorization: `Token ${localStorage.getItem("token")}`,
