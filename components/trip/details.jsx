@@ -36,7 +36,19 @@ export function TripDetail({ trip }) {
             <div class="columns is-6">
               <div class="column is-one-quarter ">
                 <div class="box">
-                  <p class="title is-4 has-text-centered">Details</p>
+                  <p class="title is-4 has-text-centered">
+                    Details{" "}
+                    {user.id == trip.creator ? (
+                      <a
+                        href={`${trip.id}/edit`}
+                        class="button is-light is-small"
+                      >
+                        ~
+                      </a>
+                    ) : (
+                      <></>
+                    )}
+                  </p>
                   <hr />
                   <div class="content">
                     <p class="title is-5">Destination:</p>
