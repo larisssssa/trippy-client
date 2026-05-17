@@ -35,3 +35,14 @@ export function createNewTripUser(id, username) {
     body: JSON.stringify(username),
   });
 }
+
+export function editTripDetails(data, id) {
+  return fetchWithoutResponse(`trips/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+}
