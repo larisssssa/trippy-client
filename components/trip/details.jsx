@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../data/auth";
 import { useRouter } from "next/router";
-import { deleteTrip } from "../../data/trips";
+import { deleteTrip, removeTripAttendee } from "../../data/trips";
 
 export function TripDetail({ trip }) {
   const [user, setUser] = useState(0);
   const router = useRouter();
+  const [username, setUsername] = useState({ username: "" });
 
   useEffect(() => {
     getUser().then((data) => {
       setUser(data);
     });
   }, []);
+  useEffect(() => {
+    const copy = { ...username };
+    copy.username = user.username;
+    setUsername(copy);
+  }, [user]);
 
   const formatDate = (date) => {
     return new Date(date).toLocaleString("en-US", {
@@ -24,6 +30,15 @@ export function TripDetail({ trip }) {
   const handleDelete = () => {
     if (window.confirm("Would you like to delete this trip?")) {
       deleteTrip(trip.id);
+      router.push("/trips");
+    } else {
+      console.log("no");
+    }
+  };
+
+  const handleRemoveAttendee = () => {
+    if (window.confirm("Would you like to leave this trip?")) {
+      removeTripAttendee(trip.id, username);
       router.push("/trips");
     } else {
       console.log("no");
@@ -113,7 +128,10 @@ export function TripDetail({ trip }) {
                             {attendee.user.first_name} {attendee.user.last_name}{" "}
                             {attendee.user.id == user.id &&
                             attendee.user.id != trip.creator ? (
-                              <button class="delete is-small"></button>
+                              <button
+                                class="delete is-small"
+                                onClick={handleRemoveAttendee}
+                              ></button>
                             ) : (
                               <></>
                             )}
