@@ -14,3 +14,55 @@ export function getTripById(id) {
     },
   });
 }
+export function createNewTrip(trip) {
+  return fetchWithResponse("trips", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(trip),
+  });
+}
+
+export function createNewTripUser(id, username) {
+  return fetchWithResponse(`trips/${id}/attendee`, {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(username),
+  });
+}
+
+export function editTripDetails(data, id) {
+  return fetchWithoutResponse(`trips/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+}
+
+export function deleteTrip(id) {
+  return fetchWithoutResponse(`trips/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+    },
+  });
+}
+
+export function addAttraction(id, attraction) {
+  return fetchWithResponse(`trips/${id}/attraction`, {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(attraction),
+  });
+}

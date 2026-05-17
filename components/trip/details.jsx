@@ -1,10 +1,33 @@
+import { useEffect, useState } from "react";
+import { getUser } from "../../data/auth";
+import { useRouter } from "next/router";
+import { deleteTrip } from "../../data/trips";
+
 export function TripDetail({ trip }) {
+  const [user, setUser] = useState(0);
+  const router = useRouter();
+
+  useEffect(() => {
+    getUser().then((data) => {
+      setUser(data);
+    });
+  }, []);
+
   const formatDate = (date) => {
     return new Date(date).toLocaleString("en-US", {
       month: "long",
       day: "numeric",
       year: "numeric",
     });
+  };
+
+  const handleDelete = () => {
+    if (window.confirm("Would you like to delete this trip?")) {
+      deleteTrip(trip.id);
+      router.push("/trips");
+    } else {
+      console.log("no");
+    }
   };
 
   return (
@@ -25,7 +48,27 @@ export function TripDetail({ trip }) {
             <div class="columns is-6">
               <div class="column is-one-quarter ">
                 <div class="box">
-                  <p class="title is-4 has-text-centered">Details</p>
+                  <p class="title is-4 has-text-centered">
+                    Details{" "}
+                    {user.id == trip.creator ? (
+                      <>
+                        <a
+                          href={`${trip.id}/edit`}
+                          class="button is-light is-small"
+                        >
+                          ~
+                        </a>{" "}
+                        <button
+                          onClick={handleDelete}
+                          class="button is-light is-small is-danger"
+                        >
+                          x
+                        </button>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </p>
                   <hr />
                   <div class="content">
                     <p class="title is-5">Destination:</p>
@@ -48,7 +91,19 @@ export function TripDetail({ trip }) {
 
               <div class="column is-one-quarter">
                 <div class="box">
-                  <p class="title is-4 has-text-centered">Attendees</p>
+                  <p class="title is-4 has-text-centered">
+                    Attendees{" "}
+                    {user.id == trip.creator ? (
+                      <a
+                        href={`${trip.id}/attendee`}
+                        class="button is-light is-small"
+                      >
+                        +
+                      </a>
+                    ) : (
+                      <></>
+                    )}
+                  </p>
                   <hr />
                   <div class="">
                     {trip.attendees?.map((attendee) => {
@@ -63,7 +118,15 @@ export function TripDetail({ trip }) {
               </div>
               <div class="column is-one-half">
                 <div class="box">
-                  <p class="title is-4 has-text-centered">Attractions</p>
+                  <p class="title is-4 has-text-centered">
+                    Attractions{" "}
+                    <a
+                      href={`${trip.id}/attraction`}
+                      class="button is-light is-small"
+                    >
+                      +
+                    </a>
+                  </p>
                   <hr />
                   <div class="fixed-grid has-2-cols">
                     <div class="grid">

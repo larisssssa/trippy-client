@@ -20,8 +20,8 @@ export function register(user) {
   });
 }
 
-export function getUserProfile() {
-  return fetchWithResponse("profile", {
+export function getUser() {
+  return fetchWithResponse("current_user", {
     headers: {
       Authorization: `Token ${localStorage.getItem("token")}`,
     },
