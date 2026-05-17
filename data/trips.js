@@ -77,3 +77,13 @@ export function removeTripAttendee(id, attendee) {
     body: JSON.stringify(attendee),
   });
 }
+export function removeTripAttraction(id, attraction) {
+  return fetchWithoutResponse(`trips/${id}/attraction`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(attraction),
+  });
+}
