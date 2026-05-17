@@ -46,3 +46,12 @@ export function editTripDetails(data, id) {
     body: JSON.stringify(data),
   });
 }
+
+export function deleteTrip(id) {
+  return fetchWithoutResponse(`trips/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+    },
+  });
+}
