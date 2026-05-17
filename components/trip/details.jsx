@@ -118,7 +118,15 @@ export function TripDetail({ trip }) {
               </div>
               <div class="column is-one-half">
                 <div class="box">
-                  <p class="title is-4 has-text-centered">Attractions</p>
+                  <p class="title is-4 has-text-centered">
+                    Attractions{" "}
+                    <a
+                      href={`${trip.id}/attraction`}
+                      class="button is-light is-small"
+                    >
+                      +
+                    </a>
+                  </p>
                   <hr />
                   <div class="fixed-grid has-2-cols">
                     <div class="grid">
