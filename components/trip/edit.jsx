@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { editTripDetails } from "../../data/trips";
+import { useRouter } from "next/router";
 
 export function EditTripForm({ trip }) {
+  const router = useRouter();
+  const { id } = router.query;
   const [editedTrip, setEditedTrip] = useState({
     name: trip.name,
     destination: trip.destination,
@@ -11,26 +15,19 @@ export function EditTripForm({ trip }) {
     creator: trip.creator,
   });
   const updateTrip = (e) => {
-    const copy = { ...trip };
+    const copy = { ...editedTrip };
     copy[e.target.id] = e.target.value;
     setEditedTrip(copy);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    createNewTrip(trip).then((res) => {
-      if (!res || !res.id) {
-        return;
-      } else {
-        addUserToTrip(res.id);
-      }
-      router.push("/trips");
-    });
+    editTripDetails(editedTrip, id).then(() => router.push(`/trips/${id}`));
   };
   return (
     <>
       <div class="section">
         <form class="box">
-          <p class="title has-text-centered">Create a new trip!</p>
+          <p class="title has-text-centered">Edit trip!</p>
           <div class="field">
             <label class="label">Trip Name</label>
             <div class="control">
@@ -38,6 +35,7 @@ export function EditTripForm({ trip }) {
                 class="input"
                 id="name"
                 type="text"
+                defaultValue={trip.name}
                 onChange={updateTrip}
                 required
               />
@@ -50,6 +48,7 @@ export function EditTripForm({ trip }) {
                 class="input"
                 id="destination"
                 type="text"
+                defaultValue={trip.destination}
                 onChange={updateTrip}
                 required
               />
@@ -62,6 +61,7 @@ export function EditTripForm({ trip }) {
                 class="input"
                 id="country"
                 type="text"
+                defaultValue={trip.country}
                 onChange={updateTrip}
                 required
               />
@@ -74,6 +74,7 @@ export function EditTripForm({ trip }) {
                 class="input"
                 id="departure_date"
                 type="date"
+                defaultValue={trip.departure_date}
                 onChange={updateTrip}
                 required
               />
@@ -86,6 +87,7 @@ export function EditTripForm({ trip }) {
                 class="input"
                 id="return_date"
                 type="date"
+                defaultValue={trip.return_date}
                 onChange={updateTrip}
                 required
               />
@@ -98,6 +100,7 @@ export function EditTripForm({ trip }) {
                 class="input"
                 id="imageurl"
                 type="text"
+                defaultValue={trip.imageurl}
                 onChange={updateTrip}
                 required
               />
@@ -106,7 +109,7 @@ export function EditTripForm({ trip }) {
           <div class="field is-grouped">
             <div class="control">
               <button class="button is-link" onClick={handleSubmit}>
-                Create Trip
+                Save Trip
               </button>
             </div>
             <div class="control">
