@@ -55,3 +55,14 @@ export function deleteTrip(id) {
     },
   });
 }
+
+export function addAttraction(id, attraction) {
+  return fetchWithResponse(`trips/${id}/attraction`, {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(attraction),
+  });
+}
