@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../data/auth";
 import { useRouter } from "next/router";
-import { deleteTrip, removeTripAttendee } from "../../data/trips";
+import {
+  deleteTrip,
+  removeTripAttendee,
+  removeTripAttraction,
+} from "../../data/trips";
 
 export function TripDetail({ trip }) {
   const [user, setUser] = useState(0);
   const router = useRouter();
   const [username, setUsername] = useState({ username: "" });
+  const [attraction, setAttraction] = useState({ id: "" });
 
   useEffect(() => {
     getUser().then((data) => {
       setUser(data);
     });
   }, []);
+
   useEffect(() => {
     const copy = { ...username };
     copy.username = user.username;
@@ -40,6 +46,20 @@ export function TripDetail({ trip }) {
     if (window.confirm("Would you like to leave this trip?")) {
       removeTripAttendee(trip.id, username);
       router.push("/trips");
+    } else {
+      console.log("no");
+    }
+  };
+
+  const updateAttraction = (e) => {
+    const copy = { ...attraction };
+    copy.id = parseInt(e.target.id);
+    setAttraction(copy);
+  };
+
+  const handleRemoveAttraction = (e) => {
+    if (window.confirm("Would you like to remove this attraction?")) {
+      removeTripAttraction(trip.id, attraction).then(router.reload());
     } else {
       console.log("no");
     }
@@ -158,7 +178,12 @@ export function TripDetail({ trip }) {
                     <div class="grid">
                       {trip.attractions?.map((attr) => {
                         return (
-                          <div class="cell" key={attr.attraction.id}>
+                          <div
+                            class="cell"
+                            key={attr.attraction.id}
+                            id={attr.attraction.id}
+                            onMouseEnter={updateAttraction}
+                          >
                             <div class="card">
                               <div class="card-image">
                                 <figure class="image">
@@ -176,7 +201,11 @@ export function TripDetail({ trip }) {
                               </div>
                               {attr.user == user.id ? (
                                 <div class="card-footer">
-                                  <button class="card-footer-item">
+                                  <button
+                                    class="card-footer-item"
+                                    id={attr.attraction.id}
+                                    onClick={handleRemoveAttraction}
+                                  >
                                     Delete
                                   </button>
                                 </div>
