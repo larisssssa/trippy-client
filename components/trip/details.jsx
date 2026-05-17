@@ -108,9 +108,17 @@ export function TripDetail({ trip }) {
                   <div class="">
                     {trip.attendees?.map((attendee) => {
                       return (
-                        <p class="title is-5" key={attendee.id}>
-                          {attendee.user.first_name} {attendee.user.last_name}
-                        </p>
+                        <div class="block" key={attendee.id}>
+                          <span class="title is-5 " key={attendee.user.id}>
+                            {attendee.user.first_name} {attendee.user.last_name}{" "}
+                            {attendee.user.id == user.id &&
+                            attendee.user.id != trip.creator ? (
+                              <button class="delete is-small"></button>
+                            ) : (
+                              <></>
+                            )}
+                          </span>
+                        </div>
                       );
                     })}
                   </div>
