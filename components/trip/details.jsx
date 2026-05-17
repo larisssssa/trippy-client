@@ -174,6 +174,15 @@ export function TripDetail({ trip }) {
                                   {attr.attraction.category.name}
                                 </span>
                               </div>
+                              {attr.user == user.id ? (
+                                <div class="card-footer">
+                                  <button class="card-footer-item">
+                                    Delete
+                                  </button>
+                                </div>
+                              ) : (
+                                <></>
+                              )}
                             </div>
                           </div>
                         );
