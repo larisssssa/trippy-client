@@ -1,4 +1,15 @@
+import { useEffect, useState } from "react";
+import { getUser } from "../../data/auth";
+
 export function TripDetail({ trip }) {
+  const [user, setUser] = useState(0);
+
+  useEffect(() => {
+    getUser().then((data) => {
+      setUser(data);
+    });
+  }, []);
+
   const formatDate = (date) => {
     return new Date(date).toLocaleString("en-US", {
       month: "long",
@@ -48,7 +59,19 @@ export function TripDetail({ trip }) {
 
               <div class="column is-one-quarter">
                 <div class="box">
-                  <p class="title is-4 has-text-centered">Attendees</p>
+                  <p class="title is-4 has-text-centered">
+                    Attendees{" "}
+                    {user.id == trip.creator ? (
+                      <a
+                        href={`${trip.id}/attendee`}
+                        class="button is-light is-small"
+                      >
+                        +
+                      </a>
+                    ) : (
+                      <></>
+                    )}
+                  </p>
                   <hr />
                   <div class="">
                     {trip.attendees?.map((attendee) => {
