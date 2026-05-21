@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a id="readme-top"></a>
 
-## Getting Started
+<!-- PROJECT LOGO -->
+<div align="center">
+  <h1>TRIPPY</h1>
+  <h3 align="center">Trippy - plan your next trip with your friends!</h3>
+</div>
 
-First, run the development server:
+<!-- ABOUT THE PROJECT -->
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About The Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Trippy is an application for planning trips. Whether a solo adventure or a getaway with friends, Trippy provides a platform to organize the details of your trip and collaboration in the planning process!
+Trippy offers the following capabilities:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Create new trips
+- Delete trips
+- View Trip Details
+- Update Trip Details, Trip Attendees, and Trip Attractions
+- Add your friends as a Trip Attendee
+- Add and Remove Locations as a Trip Attraction
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Learn More
+### Built With
 
-To learn more about Next.js, take a look at the following resources:
+- ![NextJS]
+- ![Javascript]
+- ![Bulma]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<!-- ROADMAP -->
 
-## Deploy on Vercel
+## Roadmap
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [x] CRUD capabilities
+- [x] Create README
+- [ ] Add flight/transportation information
+- [ ] Add hotel/accommodations information
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+[Larissa Ferreira](https://github.com/larisssssa)
+
+- Front-End: [https://github.com/larisssssa/trippy-client](https://github.com/larisssssa/trippy-client)
+- Back-End: [https://github.com/larisssssa/trippy-api](https://github.com/larisssssa/trippy-api)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[NextJS]: https://img.shields.io/badge/Next-black.svg?style=for-the-badge&logo=next.js&logoColor=white
+[Bulma]: https://img.shields.io/badge/bulma-00D0B1.svg?style=for-the-badge&logo=bulma&logoColor=white
+[JavaScript]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
