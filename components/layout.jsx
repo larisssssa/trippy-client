@@ -8,7 +8,7 @@ export default function Layout({ children }) {
         <Head>
           <title>Trippy</title>
         </Head>
-        <main className="container">{children}</main>
+        <main>{children}</main>
       </>
     </AppWrapper>
   );
