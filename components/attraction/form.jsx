@@ -36,7 +36,7 @@ export function NewAttractionForm() {
     e.preventDefault();
     createNewAttraction(attraction).then((res) => {
       if (!res || !res.id) {
-        setError("Please try again");
+        setError("Please complete all fields");
         return;
       } else {
         const attr = { id: res.id };
