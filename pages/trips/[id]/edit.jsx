@@ -26,7 +26,7 @@ export default function TripEdit() {
 
   return (
     <>
-      <div class="container">
+      <div className="container">
         <EditTripForm trip={trip} key={trip.id} />
       </div>
     </>

@@ -5,7 +5,7 @@ import { NewTripForm } from "../../components/trip/form";
 export default function NewTrip() {
   return (
     <>
-      <div class="container is-max-tablet">
+      <div className="container is-max-tablet">
         <NewTripForm />
       </div>
     </>

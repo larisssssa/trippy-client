@@ -25,7 +25,7 @@ export default function TripDetails() {
 
   return (
     <>
-      <div class="container">
+      <div className="container">
         <TripDetail trip={trip} key={trip.id}/>
       </div>
     </>

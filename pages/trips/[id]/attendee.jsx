@@ -5,7 +5,7 @@ import Navbar from "../../../components/navbar";
 export default function NewAttendee() {
   return (
     <>
-      <div class="container is-max-tablet">
+      <div className="container is-max-tablet">
         <NewAttendeeForm />
       </div>
     </>
