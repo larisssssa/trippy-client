@@ -6,7 +6,6 @@ import {
   removeTripAttendee,
   removeTripAttraction,
 } from "../../data/trips";
-import Image from "next/image";
 import Link from "next/link";
 
 export function TripDetail({ trip }) {
@@ -74,10 +73,7 @@ export function TripDetail({ trip }) {
           <div className="section">
             <div className="is-relative">
               <figure className="image">
-                <Image
-                  src={trip.imageurl}
-                  alt={`View of ${trip.destination}`}
-                />
+                <img src={trip.imageurl} alt={`View of ${trip.destination}`} />
                 <p className="title is-overlay has-text-centered has-text-white is-1 is-flex is-align-items-end is-justify-content-center">
                   {trip.name}
                 </p>
@@ -194,10 +190,10 @@ export function TripDetail({ trip }) {
                             <div className="card">
                               <div className="card-image">
                                 <figure className="image">
-                                  <Image
+                                  <img
                                     src={attr.attraction.imageurl}
                                     alt={`Image of ${attr.attraction.name}`}
-                                  ></Image>
+                                  ></img>
                                 </figure>
                               </div>
                               <div className="card-content">
