@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppContext } from "../context/state";
+import Link from "next/link";
 
 export default function Navbar() {
   const { token } = useAppContext();
@@ -14,24 +15,24 @@ export default function Navbar() {
   return (
     <>
       <nav
-        class="navbar is-light"
+        className="navbar is-light"
         role="navigation"
         aria-label="main navigation"
       >
-        <div class="navbar-menu is-active">
-          <div class="navbar-start">
-            <a class="navbar-item" href="/home">
+        <div className="navbar-menu is-active">
+          <div className="navbar-start">
+            <Link className="navbar-item" href="/home">
               Home
-            </a>
-            <a class="navbar-item" href="/trips">
+            </Link>
+            <Link className="navbar-item" href="/trips">
               My Trips
-            </a>
+            </Link>
           </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
+          <div className="navbar-end">
+            <div className="navbar-item">
               {isLoggedIn ? (
                 <a
-                  class="button is-light"
+                  className="button is-light"
                   onClick={() => {
                     localStorage.removeItem("token");
                     setIsLoggedIn(false);
@@ -40,11 +41,11 @@ export default function Navbar() {
                   Log out
                 </a>
               ) : (
-                <div class="buttons">
-                  <a class="button is-primary" href="register">
+                <div className="buttons">
+                  <a className="button is-primary" href="register">
                     <strong>Sign up</strong>
                   </a>
-                  <a class="button is-light" href="login">
+                  <a className="button is-light" href="login">
                     Log in
                   </a>
                 </div>

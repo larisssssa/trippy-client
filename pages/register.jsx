@@ -35,59 +35,59 @@ export default function Register() {
   };
 
   return (
-    <div class="container is-max-tablet">
-      <div class="section">
-        <form class="box">
-          <h1 class="title has-text-centered">Welcome!</h1>
-          <div class="field">
-            <label class="label">First Name</label>
-            <div class="control">
+    <div className="container is-max-tablet">
+      <div className="section">
+        <form className="box">
+          <h1 className="title has-text-centered">Welcome!</h1>
+          <div className="field">
+            <label className="label">First Name</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="first_name"
                 type="text"
                 onChange={updateUser}
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Last Name</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Last Name</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="last_name"
                 type="text"
                 onChange={updateUser}
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Email</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="email"
                 type="email"
                 onChange={updateUser}
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Username</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="username"
                 type="text"
                 onChange={updateUser}
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Password</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="password"
                 type="password"
                 onChange={updateUser}
@@ -95,14 +95,14 @@ export default function Register() {
             </div>
           </div>
 
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" type="submit" onClick={submit}>
+          <div className="field is-grouped">
+            <div className="control">
+              <button className="button is-link" type="submit" onClick={submit}>
                 Submit
               </button>
             </div>
-            <div class="control">
-              <Link href="/login" class="button is-link">
+            <div className="control">
+              <Link href="/login" className="button is-link">
                 Cancel
               </Link>
             </div>

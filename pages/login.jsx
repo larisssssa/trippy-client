@@ -29,39 +29,39 @@ export default function Login() {
   };
 
   return (
-    <div class="container is-max-tablet">
-      <div class="section">
-        <form class="box">
-          <h1 class="title has-text-centered">Welcome Back!</h1>
-          <div class="field">
-            <label class="label">Username</label>
+    <div className="container is-max-tablet">
+      <div className="section">
+        <form className="box">
+          <h1 className="title has-text-centered">Welcome Back!</h1>
+          <div className="field">
+            <label className="label">Username</label>
 
             <input
               id="username"
               type="text"
-              class="input"
+              className="input"
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div class="field">
-            <label class="label">Password</label>
+          <div className="field">
+            <label className="label">Password</label>
 
             <input
               id="password"
               type="password"
-              class="input"
+              className="input"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" type="submit" onClick={submit}>
+          <div className="field is-grouped">
+            <div className="control">
+              <button className="button is-link" type="submit" onClick={submit}>
                 Login
               </button>
             </div>
-            <div class="control">
-              <Link href="register" class="button is-link">
+            <div className="control">
+              <Link href="register" className="button is-link">
                 Register
               </Link>
             </div>

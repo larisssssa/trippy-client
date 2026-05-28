@@ -5,19 +5,19 @@ export function TripCard({ trip, width = "is-one-quarter" }) {
   });
 
   return (
-    <div class="cell">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-4by3">
+    <div className="cell">
+      <div className="card">
+        <div className="card-image">
+          <figure className="image is-4by3">
             <img src={trip.imageurl} alt="Placeholder image" />
           </figure>
         </div>
-        <div class="card-content">
-          <p class="title is-4">{trip.name}</p>
-          <p class="subtitle">{date}</p>
+        <div className="card-content">
+          <p className="title is-4">{trip.name}</p>
+          <p className="subtitle">{date}</p>
         </div>
-        <div class="card-footer">
-          <a href={`/trips/${trip.id}`} class="card-footer-item">
+        <div className="card-footer">
+          <a href={`/trips/${trip.id}`} className="card-footer-item">
             View Details
           </a>
         </div>

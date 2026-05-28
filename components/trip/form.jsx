@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getUser } from "../../data/auth";
 import { createNewTrip, createNewTripUser } from "../../data/trips";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export function NewTripForm() {
   const [user, setUser] = useState(0);
@@ -50,14 +51,14 @@ export function NewTripForm() {
 
   return (
     <>
-      <div class="section">
-        <form class="box">
-          <p class="title has-text-centered">Create a new trip!</p>
-          <div class="field">
-            <label class="label">Trip Name</label>
-            <div class="control">
+      <div className="section">
+        <form className="box">
+          <p className="title has-text-centered">Create a new trip!</p>
+          <div className="field">
+            <label className="label">Trip Name</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="name"
                 type="text"
                 onChange={updateTrip}
@@ -65,11 +66,11 @@ export function NewTripForm() {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Destination</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Destination</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="destination"
                 type="text"
                 onChange={updateTrip}
@@ -77,11 +78,11 @@ export function NewTripForm() {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Country</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Country</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="country"
                 type="text"
                 onChange={updateTrip}
@@ -89,11 +90,11 @@ export function NewTripForm() {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Departure</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Departure</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="departure_date"
                 type="date"
                 onChange={updateTrip}
@@ -101,11 +102,11 @@ export function NewTripForm() {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Return</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Return</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="return_date"
                 type="date"
                 onChange={updateTrip}
@@ -113,11 +114,11 @@ export function NewTripForm() {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Image link</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Image link</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="imageurl"
                 type="text"
                 onChange={updateTrip}
@@ -125,16 +126,16 @@ export function NewTripForm() {
               />
             </div>
           </div>
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" onClick={handleSubmit}>
+          <div className="field is-grouped">
+            <div className="control">
+              <button className="button is-link" onClick={handleSubmit}>
                 Create Trip
               </button>
             </div>
-            <div class="control">
-              <a href="/home" class="button is-link">
+            <div className="control">
+              <Link href="/home" className="button is-link">
                 Cancel
-              </a>
+              </Link>
             </div>
           </div>
         </form>

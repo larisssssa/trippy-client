@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { editTripDetails } from "../../data/trips";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export function EditTripForm({ trip }) {
   const router = useRouter();
@@ -25,14 +26,14 @@ export function EditTripForm({ trip }) {
   };
   return (
     <>
-      <div class="section">
-        <form class="box">
-          <p class="title has-text-centered">Edit trip!</p>
-          <div class="field">
-            <label class="label">Trip Name</label>
-            <div class="control">
+      <div className="section">
+        <form className="box">
+          <p className="title has-text-centered">Edit trip!</p>
+          <div className="field">
+            <label className="label">Trip Name</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="name"
                 type="text"
                 defaultValue={trip.name}
@@ -41,11 +42,11 @@ export function EditTripForm({ trip }) {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Destination</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Destination</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="destination"
                 type="text"
                 defaultValue={trip.destination}
@@ -54,11 +55,11 @@ export function EditTripForm({ trip }) {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Country</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Country</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="country"
                 type="text"
                 defaultValue={trip.country}
@@ -67,11 +68,11 @@ export function EditTripForm({ trip }) {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Departure</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Departure</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="departure_date"
                 type="date"
                 defaultValue={trip.departure_date}
@@ -80,11 +81,11 @@ export function EditTripForm({ trip }) {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Return</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Return</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="return_date"
                 type="date"
                 defaultValue={trip.return_date}
@@ -93,11 +94,11 @@ export function EditTripForm({ trip }) {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Image link</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Image link</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="imageurl"
                 type="text"
                 defaultValue={trip.imageurl}
@@ -106,16 +107,16 @@ export function EditTripForm({ trip }) {
               />
             </div>
           </div>
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" onClick={handleSubmit}>
+          <div className="field is-grouped">
+            <div className="control">
+              <button className="button is-link" onClick={handleSubmit}>
                 Save Trip
               </button>
             </div>
-            <div class="control">
-              <a href="/home" class="button is-link">
+            <div className="control">
+              <Link href="/home" className="button is-link">
                 Cancel
-              </a>
+              </Link>
             </div>
           </div>
         </form>

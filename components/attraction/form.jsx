@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createNewAttraction, getCategories } from "../../data/attractions";
 import { useRouter } from "next/router";
 import { addAttraction } from "../../data/trips";
+import Link from "next/link";
 
 export function NewAttractionForm() {
   const router = useRouter();
@@ -47,72 +48,74 @@ export function NewAttractionForm() {
 
   return (
     <>
-      <div class="section">
-        <form class="box">
-          <p class="title has-text-centered is-4">Create a new attraction!</p>
-          <div class="field">
-            <label class="label">Location Name</label>
-            <div class="control">
+      <div className="section">
+        <form className="box">
+          <p className="title has-text-centered is-4">
+            Create a new attraction!
+          </p>
+          <div className="field">
+            <label className="label">Location Name</label>
+            <div className="control">
               <input
                 id="name"
                 type="text"
-                class="input"
+                className="input"
                 onChange={updateAttraction}
                 required
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Description</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Description</label>
+            <div className="control">
               <input
                 id="description"
                 type="text"
-                class="input"
+                className="input"
                 onChange={updateAttraction}
                 required
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">City</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">City</label>
+            <div className="control">
               <input
                 id="city"
                 type="text"
-                class="input"
+                className="input"
                 onChange={updateAttraction}
                 required
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Country</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Country</label>
+            <div className="control">
               <input
                 id="country"
                 type="text"
-                class="input"
+                className="input"
                 onChange={updateAttraction}
                 required
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Image link</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Image link</label>
+            <div className="control">
               <input
                 id="imageurl"
                 type="text"
-                class="input"
+                className="input"
                 onChange={updateAttraction}
                 required
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Category</label>
-            <div class="select">
+          <div className="field">
+            <label className="label">Category</label>
+            <div className="select">
               <select id="category_id" onChange={updateAttraction}>
                 <option key="0" value="0">
                   - Select Category -
@@ -125,18 +128,18 @@ export function NewAttractionForm() {
               </select>
             </div>
           </div>
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" onClick={handleSubmit}>
+          <div className="field is-grouped">
+            <div className="control">
+              <button className="button is-link" onClick={handleSubmit}>
                 Submit
               </button>
             </div>
-            <div class="control">
-              <a href="/home" class="button is-link">
+            <div className="control">
+              <Link href="/home" className="button is-link">
                 Cancel
-              </a>
+              </Link>
             </div>
-            <p class="help is-danger">{error}</p>
+            <p className="help is-danger">{error}</p>
           </div>
         </form>
       </div>

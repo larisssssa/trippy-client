@@ -6,6 +6,8 @@ import {
   removeTripAttendee,
   removeTripAttraction,
 } from "../../data/trips";
+import Image from "next/image";
+import Link from "next/link";
 
 export function TripDetail({ trip }) {
   const [user, setUser] = useState(0);
@@ -69,33 +71,36 @@ export function TripDetail({ trip }) {
     <>
       {trip.id != null ? (
         <>
-          <div class="section">
-            <div class="is-relative">
-              <figure class="image">
-                <img src={trip.imageurl} alt={`View of ${trip.destination}`} />
-                <p class="title is-overlay has-text-centered has-text-white is-1 is-flex is-align-items-end is-justify-content-center">
+          <div className="section">
+            <div className="is-relative">
+              <figure className="image">
+                <Image
+                  src={trip.imageurl}
+                  alt={`View of ${trip.destination}`}
+                />
+                <p className="title is-overlay has-text-centered has-text-white is-1 is-flex is-align-items-end is-justify-content-center">
                   {trip.name}
                 </p>
               </figure>
             </div>
           </div>
-          <div class="section">
-            <div class="columns is-6">
-              <div class="column is-one-quarter ">
-                <div class="box">
-                  <p class="title is-4 has-text-centered">
+          <div className="section">
+            <div className="columns is-6">
+              <div className="column is-one-quarter ">
+                <div className="box">
+                  <p className="title is-4 has-text-centered">
                     Details{" "}
                     {user.id == trip.creator ? (
                       <>
                         <a
                           href={`${trip.id}/edit`}
-                          class="button is-light is-small"
+                          className="button is-light is-small"
                         >
                           ~
                         </a>{" "}
                         <button
                           onClick={handleDelete}
-                          class="button is-light is-small is-danger"
+                          className="button is-light is-small is-danger"
                         >
                           x
                         </button>
@@ -105,33 +110,35 @@ export function TripDetail({ trip }) {
                     )}
                   </p>
                   <hr />
-                  <div class="content">
-                    <p class="title is-5">Destination:</p>
-                    <p class="subtitle is-6">
+                  <div className="content">
+                    <p className="title is-5">Destination:</p>
+                    <p className="subtitle is-6">
                       {trip.destination}, {trip.country}
                     </p>
                   </div>
-                  <div class="content">
-                    <p class="title is-5">Departure:</p>
-                    <p class="subtitle is-6">
+                  <div className="content">
+                    <p className="title is-5">Departure:</p>
+                    <p className="subtitle is-6">
                       {formatDate(trip.departure_date)}
                     </p>
                   </div>
-                  <div class="content">
-                    <p class="title is-5">Return:</p>
-                    <p class="subtitle is-6">{formatDate(trip.return_date)}</p>
+                  <div className="content">
+                    <p className="title is-5">Return:</p>
+                    <p className="subtitle is-6">
+                      {formatDate(trip.return_date)}
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div class="column is-one-quarter">
-                <div class="box">
-                  <p class="title is-4 has-text-centered">
+              <div className="column is-one-quarter">
+                <div className="box">
+                  <p className="title is-4 has-text-centered">
                     Attendees{" "}
                     {user.id == trip.creator ? (
                       <a
                         href={`${trip.id}/attendee`}
-                        class="button is-light is-small"
+                        className="button is-light is-small"
                       >
                         +
                       </a>
@@ -140,16 +147,16 @@ export function TripDetail({ trip }) {
                     )}
                   </p>
                   <hr />
-                  <div class="">
+                  <div className="">
                     {trip.attendees?.map((attendee) => {
                       return (
-                        <div class="block" key={attendee.id}>
-                          <span class="title is-5 " key={attendee.user.id}>
+                        <div className="block" key={attendee.id}>
+                          <span className="title is-5 " key={attendee.user.id}>
                             {attendee.user.first_name} {attendee.user.last_name}{" "}
                             {attendee.user.id == user.id &&
                             attendee.user.id != trip.creator ? (
                               <button
-                                class="delete is-small"
+                                className="delete is-small"
                                 onClick={handleRemoveAttendee}
                               ></button>
                             ) : (
@@ -162,47 +169,52 @@ export function TripDetail({ trip }) {
                   </div>
                 </div>
               </div>
-              <div class="column is-one-half">
-                <div class="box">
-                  <p class="title is-4 has-text-centered">
+              <div className="column is-one-half">
+                <div className="box">
+                  <p className="title is-4 has-text-centered">
                     Attractions{" "}
                     <a
                       href={`${trip.id}/attraction`}
-                      class="button is-light is-small"
+                      className="button is-light is-small"
                     >
                       +
                     </a>
                   </p>
                   <hr />
-                  <div class="fixed-grid has-2-cols">
-                    <div class="grid">
+                  <div className="fixed-grid has-2-cols">
+                    <div className="grid">
                       {trip.attractions?.map((attr) => {
                         return (
                           <div
-                            class="cell"
+                            className="cell"
                             key={attr.attraction.id}
                             id={attr.attraction.id}
                             onMouseEnter={updateAttraction}
                           >
-                            <div class="card">
-                              <div class="card-image">
-                                <figure class="image">
-                                  <img src={attr.attraction.imageurl}></img>
+                            <div className="card">
+                              <div className="card-image">
+                                <figure className="image">
+                                  <Image
+                                    src={attr.attraction.imageurl}
+                                    alt={`Image of ${attr.attraction.name}`}
+                                  ></Image>
                                 </figure>
                               </div>
-                              <div class="card-content">
-                                <p class="title is-6">{attr.attraction.name}</p>
-                                <p class="subtitle is-6">
+                              <div className="card-content">
+                                <p className="title is-6">
+                                  {attr.attraction.name}
+                                </p>
+                                <p className="subtitle is-6">
                                   {attr.attraction.description}
                                 </p>
-                                <span class="tag is-light">
+                                <span className="tag is-light">
                                   {attr.attraction.category.name}
                                 </span>
                               </div>
                               {attr.user == user.id ? (
-                                <div class="card-footer">
+                                <div className="card-footer">
                                   <button
-                                    class="card-footer-item"
+                                    className="card-footer-item"
                                     id={attr.attraction.id}
                                     onClick={handleRemoveAttraction}
                                   >
@@ -224,13 +236,13 @@ export function TripDetail({ trip }) {
           </div>
         </>
       ) : (
-        <div class="section">
-          <section class="hero has-background-light">
-            <div class="hero-body">
-              <p class="title">Page not found</p>
-              <a href="/trips" class="button">
+        <div className="section">
+          <section className="hero has-background-light">
+            <div className="hero-body">
+              <p className="title">Page not found</p>
+              <Link href="/trips" className="button">
                 Return to My Trips
-              </a>
+              </Link>
             </div>
           </section>
         </div>

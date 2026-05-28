@@ -28,14 +28,14 @@ export function NewAttendeeForm() {
 
   return (
     <>
-      <div class="section">
-        <form class="box">
-          <p class="title">Invite</p>
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control">
+      <div className="section">
+        <form className="box">
+          <p className="title">Invite</p>
+          <div className="field">
+            <label className="label">Username</label>
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 id="username"
                 type="text"
                 onChange={updateAttendee}
@@ -43,13 +43,13 @@ export function NewAttendeeForm() {
               />
             </div>
           </div>
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" onClick={handleSubmit}>
+          <div className="field is-grouped">
+            <div className="control">
+              <button className="button is-link" onClick={handleSubmit}>
                 Invite
               </button>
             </div>
-            <p class="help is-danger">{error}</p>
+            <p className="help is-danger">{error}</p>
           </div>
         </form>
       </div>

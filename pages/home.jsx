@@ -4,15 +4,15 @@ import Navbar from "../components/navbar";
 export default function Home() {
   return (
     <>
-      <div class="container">
-        <div class="section">
-          <h1 class="title">Welcome</h1>
+      <div className="container">
+        <div className="section">
+          <h1 className="title">Welcome</h1>
         </div>
-        <div class="buttons is-grouped">
-          <a class="button" href="trips/new">
+        <div className="buttons is-grouped">
+          <a className="button" href="trips/new">
             New Trip
           </a>
-          <a class="button" href="trips/">
+          <a className="button" href="trips/">
             My Trips
           </a>
         </div>
